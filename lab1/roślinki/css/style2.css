@@ -39,15 +39,15 @@ header h1 {
 
 
 header img {
-  width: 80%; /* Zmniejszona szerokość zdjęcia */
-  height: auto; /* Proporcjonalna wysokość */
-  max-height: 350px; /* Maksymalna wysokość */
+  width: 80%;
+  height: auto;
+  max-height: 350px;
   display: block;
-  margin: 20px auto; /* Wyśrodkowanie */
-  filter: brightness(0.8); /* Przyciemnienie obrazu */
+  margin: 20px auto;
+
 }
 
-/* Główna zawartość po prawej stronie */
+
 .board {
   padding: 20px;
   margin-left: 25%;
