@@ -1,0 +1,5 @@
+.task {
+    border-bottom: 1px solid #af00ff; /* Dodaje dolną linię */
+    padding: 5px 0;
+    margin-bottom: 2px;
+}
