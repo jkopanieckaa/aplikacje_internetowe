@@ -1,5 +1,66 @@
-.task {
-    border-bottom: 1px solid #af00ff; /* Dodaje dolną linię */
-    padding: 5px 0;
-    margin-bottom: 2px;
+.highlight {
+    background-color: #ff07d4;
 }
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid #000000;
+}
+
+body {
+    background-color: #FFC2D1;
+    color: #000000;
+    font-family: 'Times New Roman', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    /* Dodanie obrazka jako tła */
+    background-image: url('to do list.webp');
+    background-position: center; /* Obrazek wyśrodkowany */
+    background-repeat: no-repeat; /* Obrazek nie powtarza się */
+    background-size: 50%;
+}
+
+.task input[type="text"], .task input[type="date"] {
+    background-color: #FFB3C6;
+    color: #000000;
+    border: 1px solid #FFB3C6;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.task button {
+    background-color: #FF8FAB;
+    color: #000000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task button:hover {
+    background-color: #FB6F92;
+}
+
+#todo-list {
+    width: 300px;
+    margin-top: 20px;
+}
+
+.task-item {
+    background-color: #FFB3C6;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+

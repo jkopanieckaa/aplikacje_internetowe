@@ -1,75 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script src="js.js" defer></script>  <!-- Popraw nazwę pliku JS, jeśli to "app.js" -->
     <title>Todo lista</title>
 </head>
 <body>
 
+<!-- Wyszukiwarka -->
 <div class="task">
-<input type="text" id="search" placeholder="Wyszukaj zadania">
-<button id="search-btn">&#x1F50E</button>
-<br>
+    <input type="text" id="search" placeholder="Wyszukaj zadania">
+    <button id="search-btn">&#x1F50E</button>
 </div>
 
+<!-- Lista zadań będzie dynamicznie tworzona tutaj -->
+<div id="todo-list"></div>
+
+
+<!-- Sekcja dodawania nowego zadania -->
 <div class="task">
-<input type="checkbox">
-<label>ciastka</label>
-<input type="date">
-<button id="delete">&#128686</button>
-<br>
+    <input type="text" id="add" placeholder="Dodaj zadanie" minlength="3" maxlength="255">
+    <input type="date" id="due-date">
+    <button id="add-task">Dodaj zadanie</button>
 </div>
 
-<div class="task">
-<input type="checkbox">
-<label>herbata</label>
-<input type="date">
-<button id="delete1">&#128686</button>
-<br>
-</div>
-
-<div class="task">
-<input type="checkbox">
-<label>matcha</label>
-<button id="delete2">&#128686</button>
-<br>
-</div>
-
-<input type="text" id="add" placeholder="Dodaj zadanie" minlenght="3" maxlength="255">
-<input type="date">
-<button id="add-task">Dodaj zadanie</button>
 </body>
 </html>
-
-
-<body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
