@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo lista</title>
+  <style>
+    .task-label-ciastka {
+      border: 1px solid #000000; /* kolor obramowania */
+      padding: 3px;
+      border-radius: 3px; /* lekko zaokrąglone rogi */
+      background-color: #fdf5e6; /* lekko kremowe tło */
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="task">
+  <input type="text" id="search" placeholder="Wyszukaj zadania">
+  <button id="search-btn">&#x1F50E</button>
+  <br>
+</div>
+
+<!-- Ciastka z obramowaniem tylko wokół napisu -->
+<div class="task">
+  <input type="checkbox">
+  <label class="task-label-ciastka">ciastka</label> <!-- Dodano klasę do obramowania tylko napisu -->
+  <input type="date">
+  <button id="delete">&#128686</button>
+  <br>
+</div>
+
+<div class="task">
+  <input type="checkbox">
+  <label>herbata</label>
+  <input type="date">
+  <button id="delete1">&#128686</button>
+  <br>
+</div>
+
+<div class="task">
+  <input type="checkbox">
+  <label>matcha</label>
+  <button id="delete2">&#128686</button>
+  <br>
+</div>
+
+<input type="text" id="add" placeholder="Dodaj zadanie" minlength="3" maxlength="255">
+<input type="date">
+<button id="add-task">Dodaj zadanie</button>
+
+</body>
+</html>
