@@ -1,12 +1,12 @@
 document.todo = {
     tasks: [],
 
-    // Dodajemy zadanie do listy
+    //dodawanie zadan
     addTask: function(taskText, dueDate) {
         if (taskText.length >= 3 && taskText.length <= 255) {
             let task = {
                 text: taskText,
-                date: dueDate ? this.formatDate(dueDate) : undefined // Formatujemy datę
+                date: dueDate ? this.formatDate(dueDate) : undefined
             };
             this.tasks.push(task);
             this.saveTasks();
@@ -16,26 +16,24 @@ document.todo = {
         }
     },
 
-    // Funkcja formatowania daty na dd-mm-rrrr
     formatDate: function(dateString) {
         let date = new Date(dateString);
         let day = String(date.getDate()).padStart(2, '0');
-        let month = String(date.getMonth() + 1).padStart(2, '0'); // Miesiące są liczone od 0
+        let month = String(date.getMonth() + 1).padStart(2, '0');
         let year = date.getFullYear();
         return `${day}-${month}-${year}`;
     },
 
-    // Wyświetlanie listy zadań
+    //wyswietlanie
     draw: function() {
         let todoList = document.getElementById('todo-list');
-        todoList.innerHTML = ''; // Czyścimy listę
+        todoList.innerHTML = '';
 
         this.tasks.forEach((task, index) => {
             let taskItem = document.createElement('div');
             taskItem.classList.add('task-item');
             taskItem.innerText = task.text;
 
-            // Dodajemy datę, jeśli istnieje
             if (task.date) {
                 let date = document.createElement('span');
                 date.classList.add('task-date');
@@ -43,7 +41,7 @@ document.todo = {
                 taskItem.appendChild(date);
             }
 
-            // Dodajemy przycisk usuwania
+
             let deleteBtn = document.createElement('button');
             deleteBtn.innerHTML = '&#128686';
             deleteBtn.addEventListener('click', () => {
@@ -51,7 +49,6 @@ document.todo = {
             });
             taskItem.appendChild(deleteBtn);
 
-            // Funkcja do edycji zadania po kliknięciu
             taskItem.addEventListener('click', () => {
                 this.editTask(taskItem, task, index);
             });
@@ -60,7 +57,7 @@ document.todo = {
         });
     },
 
-    // Funkcja edycji zadania
+    //edytowanie
     editTask: function(taskItem, task, index) {
         let input = document.createElement('input');
         input.type = 'text';
@@ -75,7 +72,7 @@ document.todo = {
         });
     },
 
-    // Usuwanie zadania
+    //usuwanie
     deleteTask: function(index) {
         this.tasks.splice(index, 1);
         this.saveTasks();
@@ -83,12 +80,12 @@ document.todo = {
         this.draw();
     },
 
-    // Zapisywanie zadań do LocalStorage
+    //zapisywanie
     saveTasks: function() {
         localStorage.setItem('tasks', JSON.stringify(this.tasks));
     },
 
-    // Ładowanie zadań z LocalStorage
+    //ladowanie
     loadTasks: function() {
         let savedTasks = JSON.parse(localStorage.getItem('tasks'));
         if (savedTasks) {
@@ -98,21 +95,18 @@ document.todo = {
     }
 };
 
-// Obsługa dodawania zadań
-// Obsługa dodawania zadań
 document.getElementById('add-task').addEventListener('click', function() {
     let taskText = document.getElementById('add').value;
     let dueDate = document.getElementById('due-date').value;
 
     document.todo.addTask(taskText, dueDate);
 
-    // Resetowanie pól po dodaniu zadania
+    //resetowanie
     document.getElementById('add').value = '';
     document.getElementById('due-date').value = '';
 });
 
 
-// Obsługa wyszukiwania
 document.getElementById('search').addEventListener('input', function() {
     let searchText = this.value.toLowerCase();
     document.todo.tasks.forEach((task, index) => {
@@ -124,7 +118,7 @@ document.getElementById('search').addEventListener('input', function() {
                 return `<span class="highlight">${match}</span>`;
             });
 
-            // Dodanie przycisku usuwania po wyszukiwaniu
+            //po co to
             let deleteBtn = document.createElement('button');
             deleteBtn.innerText = 'Usuń';
             deleteBtn.addEventListener('click', () => {
@@ -133,10 +127,10 @@ document.getElementById('search').addEventListener('input', function() {
             taskItem.appendChild(deleteBtn);
 
         } else {
-            taskItem.style.display = 'none'; // Ukrywamy niepasujące zadania
+            taskItem.style.display = 'none';
         }
     });
 });
 
-// Wczytujemy zadania przy załadowaniu strony
+
 document.todo.loadTasks();
