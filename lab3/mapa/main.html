@@ -2,67 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>mapka</title>
-    <link rel="stylesheet" href="leaflet-1.7.1/leaflet.css" />
+    <title>Map Puzzle</title>
+    <link rel="stylesheet" href="leaflet-1.7.1/leaflet.css">
     <script src="leaflet-1.7.1/leaflet-src.js"></script>
     <script src="leaflet-1.7.1/leaflet-providers.js"></script>
     <script src="leaflet-1.7.1/leaflet-image.js"></script>
-
     <style>
         #map {
             width: 600px;
             height: 300px;
             border: 1px solid black;
+            margin-bottom: 10px;
         }
 
-        #rasterMap {
-            width: 600px;
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #puzzleContainer {
+            display: none;
+            grid-template-columns: repeat(4, 75px);
+            grid-template-rows: repeat(4, 75px);
+            gap: 2px;
+            margin-right: 20px;
+        }
+
+        .puzzle-piece {
+            width: 75px;
+            height: 75px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .puzzle-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        #puzzleTarget {
+            width: 300px;
             height: 300px;
+            display: grid;
+            grid-template-columns: repeat(4, 75px);
+            grid-template-rows: repeat(4, 75px);
+            gap: 2px;
             border: 1px solid black;
         }
     </style>
 </head>
 <body>
-<div id="map"></div>
+<div id="container">
+    <div id="map"></div>
+    <button id="getLocation">Get Current Location</button>
+    <button id="saveButton">Save Raster Map</button>
+    <br>
 
-<button id="getLocation">Get Current Location</button>
-<button id="saveButton">Save Raster Map</button>
-<br>
+    <div class="puzzle-wrapper">
+        <div id="puzzleContainer"></div>
+        <div id="puzzleTarget"></div>
+    </div>
+</div>
 
-<canvas id="rasterMap" width="600" height="300"></canvas>
+<canvas id="rasterMap" width="600" height="300" style="display: none;"></canvas>
 
-<script>
-    let map = L.map('map').setView([53.430127, 14.564802], 18);
-    //L.tileLayer.provider('OpenStreetMap.DE').addTo(map);
-    L.tileLayer.provider('Esri.WorldImagery').addTo(map);
-    let marker = L.marker([53.430127, 14.564802]).addTo(map);
-    marker.bindPopup("<strong>Hello!</strong><br>This is a popup.");
-
-    document.getElementById("saveButton").addEventListener("click", function() {
-        leafletImage(map, function (err, canvas) {
-            // here we have the canvas
-            let rasterMap = document.getElementById("rasterMap");
-            let rasterContext = rasterMap.getContext("2d");
-
-            rasterContext.drawImage(canvas, 0, 0, 600, 300);
-        });
-    });
-
-    document.getElementById("getLocation").addEventListener("click", function(event) {
-        if (! navigator.geolocation) {
-            console.log("No geolocation.");
-        }
-
-        navigator.geolocation.getCurrentPosition(position => {
-            console.log(position);
-            let lat = position.coords.latitude;
-            let lon = position.coords.longitude;
-
-            map.setView([lat, lon]);
-        }, positionError => {
-            console.error(positionError);
-        });
-    });
-</script>
+<script src="js.js"></script>
 </body>
 </html>
