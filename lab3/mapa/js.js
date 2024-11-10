@@ -23,12 +23,10 @@ map.on('locationfound', function (e) {
         }
     });
 
-    // // Add marker at the current location
     // L.marker(e.latlng).addTo(map)
     //     .bindPopup("You are here!")
     //     .openPopup();
 
-    // Set the map view to the user's location with a close zoom level
     map.setView(e.latlng, 16);
 });
 
@@ -78,7 +76,7 @@ document.getElementById('saveButton').onclick = function () {
         }
 
 
-        // pieces = pieces.sort(() => Math.random() - 0.5);
+        pieces = pieces.sort(() => Math.random() - 0.5);
         pieces.forEach(piece => puzzleContainer.appendChild(piece));
 
         for (let i = 0; i < rows * cols; i++) {
