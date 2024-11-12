@@ -1,0 +1,30 @@
+/* Stylizacja główna */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #f6bd60;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #f6bd60;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    /*text-align: center;*/
+}
+
