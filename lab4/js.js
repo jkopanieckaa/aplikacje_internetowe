@@ -1,7 +1,7 @@
 document.getElementById('weatherButton').addEventListener('click', function() {
     const location = document.getElementById('locationInput').value;
     if (!location) {
-        alert('nazwa miejscowości.');
+        alert('Podaj nazwę miejscowości.');
         return;
     }
     getCurrentWeather(location);
@@ -9,7 +9,7 @@ document.getElementById('weatherButton').addEventListener('click', function() {
 });
 
 function getCurrentWeather(location) {
-    const apiKey = '7ded80d91f2b280ec979100cc8bbba94';
+    const apiKey = '71c0d0e44ebf4e273a3cc2213c575a67';
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric&lang=pl`;
 
     const xhr = new XMLHttpRequest();
@@ -18,16 +18,18 @@ function getCurrentWeather(location) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const data = JSON.parse(xhr.responseText);
             console.log("Bieżąca pogoda:", data);
-            document.getElementById('weatherInfo').innerHTML = `
-                <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Ikona pogody">
-                Temperatura: ${data.main.temp}°C, 
-                Opis: ${data.weather[0].description}
-            `;
-        } else if (xhr.readyState === 4) {
-            alert('Nie udało się pobrać bieżącej pogody.');
+            drawWeather(data);
         }
     };
     xhr.send();
+}
+
+function drawWeather(data) {
+    document.getElementById('weatherInfo').innerHTML = `
+        <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
+        Temperatura: ${data.main.temp}°C, 
+        Opis: ${data.weather[0].description}
+    `;
 }
 
 function getForecast(location) {
@@ -40,7 +42,7 @@ function getForecast(location) {
             return response.json();
         })
         .then(data => {
-            console.log("Prognoza pogody:", data);
+            console.log("Prognoza pogody na 5dni:", data);
             const forecastList = data.list.slice(0, 5).map(item => {
                 const date = new Date(item.dt * 1000);
                 const formattedDate = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
