@@ -1,0 +1,108 @@
+/* Style ogólne */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+body {
+  font-family: 'Times New Roman';
+  margin: 0;
+  padding: 0;
+  background-color: #EDE0D4;
+  color: #7F5539;
+}
+
+
+/* Nagłówek */
+header {
+  background-color: #B08968;
+  padding: 20px;
+  text-align: center;
+  width: 20%;
+  height: 30%;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+
+
+header h1 {
+  color: #E6CCB2;
+  font-size: 4rem; /* Dla większych ekranów */
+  margin: 0;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+
+header img {
+  width: 80%;
+  height: auto;
+  max-height: 350px;
+  display: block;
+  margin: 20px auto;
+
+}
+
+
+.board {
+  padding: 20px;
+  margin-left: 25%;
+}
+
+h2, h3 {
+  color: #B08968;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #DDB892;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+/* Styl stopki */
+footer {
+  text-align: center;
+  color: #7F5539;
+  padding: 10px;
+  margin-top: 20px;
+  height: 90%;
+}
+
+footer a {
+  color: #DDB892;
+  text-decoration: none;
+}
+
+@media (max-width: 375px) {
+  header {
+    padding: 10px; /* Zmniejszenie paddingu nagłówka */
+  }
+
+  header h1 {
+    font-size: 2rem; /* Dostosowanie rozmiaru czcionki */
+  }
+
+  header img {
+    max-height: 150px; /* Dostosowanie maksymalnej wysokości zdjęcia */
+  }
+
+  .board {
+    padding: 10px; /* Dostosowanie paddingu głównej zawartości */
+    margin-left: 0; /* Główna zawartość zajmuje całą szerokość */
+  }
+}
+
+
+

@@ -1,0 +1,124 @@
+/* Global styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+
+body {
+  background-color: rgb(255, 255, 255); /* light gray background */
+  /*display: flex;*/
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes up full viewport height */
+  margin: 0;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* Header styles */
+
+/* Add a background image to the header */
+header {
+  background-image: url('../img/plants.background.jpg'); /* replace with your image */
+  background-size: cover;
+  background-position: center;
+  padding: 10% 5%;
+  text-align: center;
+  position: relative; /* add this to allow for absolute positioning of the title */
+  color: white;
+}
+
+/* Add a transparent overlay to the background image */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* white with 50% opacity */
+}
+
+/* Style the title with a black outline and 3D effect */
+header h1 {
+  color: #ffffff; /* white */
+  font-size: 3rem;
+  margin-bottom: 10px;
+  position: relative; /* add this to allow for absolute positioning of the outline */
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+/* Main content styles */
+
+h2,h3 {
+  color: #081C15; /* dark green */
+  margin-top: 20px;
+}
+
+
+p {
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+ul {
+  text-align: left;
+  list-style: none; /* Usunięcie domyślnego stylu listy */
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+ul li {
+  padding-left: 30px; /* Dodatkowa przestrzeń na obraz */
+  background-image: url('../img/icontexto-green-01.png');
+  background-repeat: no-repeat;
+  background-size: 20px 20px; /* Ustawienie rozmiaru obrazka */
+  background-position: 0 5px; /* Ustawienie pozycji obrazka */
+  left: 0;
+}
+
+.board {
+  background-color: #B7E4C7; /* Ciemne tło dla tabliczki */
+  color: #081C15; /* Biały tekst */
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px #40916C;
+  width: 80%; /* Szerokość tabliczki, możesz dopasować */
+  max-width: 800px; /* Maksymalna szerokość */
+}
+
+footer {
+  width: 100%;               /* Stopka zajmuje całą szerokość dostępnego miejsca */
+      /* Wyśrodkowanie tekstu */
+  margin: 0 auto;             /* Wyśrodkowanie całej stopki */
+  padding: 10px 20px;         /* Zwiększony padding na większych ekranach */
+  background-color: #f0f0f0;  /* Kolor tła */
+  box-sizing: border-box;     /* Upewnij się, że padding jest uwzględniony w szerokości */
+}
+
+footer p {
+  font-size: 1em;
+  text-align: center;   /* Ustawienie rozmiaru tekstu w jednostkach względnych */
+  line-height: 1.5;           /* Ustawienie odpowiedniej wysokości linii dla czytelności */
+  margin: 0;                  /* Usunięcie domyślnych marginesów */
+}
+
+
+
+
+#style-links {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
