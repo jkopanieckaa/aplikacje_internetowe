@@ -3,11 +3,11 @@
 /** @var \App\Model\Movie $movie */
 /** @var \App\Service\Router $router */
 
-$title = "{$movie->getSubject()} ({$movie->getId()})";
+$title = "{$movie->getName()} ({$movie->getId()})";
 $bodyClass = 'show';
 
 ob_start(); ?>
-    <h1><?= $movie->getSubject() ?></h1>
+    <h1><?= $movie->getName() ?></h1>
     <article>
         <?= $movie->getContent();?>
     </article>

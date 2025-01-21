@@ -9,7 +9,6 @@ $router = new \App\Service\Router();
 $action = $_REQUEST['action'] ?? null;
 switch ($action) {
     case 'post-index':
-    case null:
         $controller = new \App\Controller\PostController();
         $view = $controller->indexAction($templating, $router);
         break;
@@ -40,6 +39,7 @@ switch ($action) {
         break;
 
     case 'movie-index':
+    case null:
         $controller = new \App\Controller\MovieController();
         $view = $controller->indexAction($templating, $router);
         break;
